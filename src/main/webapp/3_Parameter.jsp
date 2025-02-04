@@ -1,0 +1,82 @@
+<%@page import="vo.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.TblProductDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_Parameter.jsp </title>
+<link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+<h2>상품 카테고리</h2>
+<!-- a 태그로 메뉴의 링크 주소 설정. 추가로 ?파리미터이름=파리미터값 
+	 a 태그의 href 의 url 주소값으로 새로운 요청(request)을 서버로 보냅니다. 
+ -->
+<ul>
+	<li><a href="3_Parameter.jsp?category=A1">국내산 과일</a></li>
+	<li><a href="3_Parameter.jsp?category=A2">수입 과일</a></li>
+	<li><a href="3_Parameter.jsp?category=B1">인스턴트 식품</a></li>
+	<li><a href="3_Parameter.jsp?category=B2">선물세트</a></li>
+	<li><a href="3_Parameter.jsp?category=C1">과자류</a></li>
+</ul>
+<%
+	String category = request.getParameter("category");
+	//1. 파라미터가 없는 URL 일때 category 변수 초기화 
+	// if(category==null) category = "A1"; 
+	
+	//파라미터가 없는 URL 일때 3_Parameter.jsp
+	//2.  파라미터가 없는 URL 일 때, 전체 상품 출력하기 
+	TblProductDao dao = TblProductDao.getInstance();
+	List<Product> list = null;
+	if(category==null)
+		list = dao.selectAllProduct();
+	else
+		list = dao.selectByCategory(category);  //카테고리값 변경 직접 문자열값 변경 
+	// 결과 리스트를 브라우저에 출력하고 싶다. ---> table 태그 사용
+	// dao 잘 싱행되는지 간단 테스트 
+	// out.print(list);
+%>
+<h2>카테고리별 상품 목록</h2>
+<table>
+		<tr id ="productH">
+		     <td style="width:100px;">번호</td>
+		     <th>카테고리</th>
+		     <th>상품명</th>
+		     <th>상품코드</th>
+		     <th>가격</th>
+		</tr>
+		
+			<%
+				for(int i=0;i<list.size();i++){
+					// list.get(i)는 Product 타입입니다. 
+					Product temp = list.get(i);
+			%>
+		<tr id="product">
+<%-- 		
+		    <td style="width:100px;"><%= i+1 %></td>
+			<td><%= list.get(i) %></td>
+			<td><%= list.get(i) %></td> 
+			<td><%= list.get(i) %></td>
+			<td><%= list.get(i) %></td>
+			 --%>
+			
+			<td style="width:100px;"><%= i+1 %></td>
+			<td><%= list.get(i).getCategory() %></td>
+			<td><%= list.get(i).getPname() %></td> <!-- 왼쪽 정렬 -->
+			<td><%= list.get(i).getPcode() %></td>
+			<td><%= String.format("%,6d",temp.getPrice())%></td> <!-- 오른쪽 정렬 -->
+		
+		</tr>
+			<%
+				}
+			%>
+			
+	
+	</table>
+
+
+</body>
+</html>
