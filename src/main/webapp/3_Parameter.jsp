@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>3_Parameter.jsp </title>
 <link rel="stylesheet" href="css/table.css">
+<title>3_Parameter.jsp</title>
 </head>
 <body>
 <h2>상품 카테고리</h2>
-<!-- a 태그로 메뉴의 링크 주소 설정. 추가로 ?파리미터이름=파리미터값 
-	 a 태그의 href 의 url 주소값으로 새로운 요청(request)을 서버로 보냅니다. 
- -->
+<!-- a 태그로 메뉴의 링크 주소 설정. 추가로 ?파라미터이름=파라미터값 전달.
+     a 태그의 href 의 url 주소값으로 새로운 요청(request)을 서버로 보냅니다.
+-->
 <ul>
 	<li><a href="3_Parameter.jsp?category=A1">국내산 과일</a></li>
 	<li><a href="3_Parameter.jsp?category=A2">수입 과일</a></li>
@@ -33,20 +33,20 @@
 	List<Product> list = null;
 	if(category==null)
 		list = dao.selectAllProduct();
-	else
-		list = dao.selectByCategory(category);  //카테고리값 변경 직접 문자열값 변경 
-	// 결과 리스트를 브라우저에 출력하고 싶다. ---> table 태그 사용
-	// dao 잘 싱행되는지 간단 테스트 
+	else 
+		list = dao.selectByCategory(category);   // 카테고리값 변경 직접 문자열값 변경
+	//결과 리스트를 브라우저에 출력하고 싶다.--> table 태그 사용
+	// dao 잘 실행되는지 간단 테스트
 	// out.print(list);
 %>
-<h2>카테고리별 상품 목록</h2>
-<table>
-		<tr id ="productH">
-		     <td style="width:100px;">번호</td>
-		     <th>카테고리</th>
-		     <th>상품명</th>
-		     <th>상품코드</th>
-		     <th>가격</th>
+	<h2>카테고리별 상품 목록</h2>
+	<table>
+		<tr id="productH">
+			<th style="width:100px;">번호</th>
+			<th>카테고리</th>
+			<th>상품명</th>
+			<th>상품코드</th>
+			<th>가격</th>
 		</tr>
 		
 			<%

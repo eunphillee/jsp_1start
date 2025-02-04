@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/table.css">
-<title>Insert title here</title>
+<title>리스트 출력</title>
 </head>
 <body>
 <%
@@ -27,15 +27,12 @@
 	<h2>번호와 이름을table 로 출력하는 연습 </h2>
 	<table>
 		<tr>
-		     <th>번호</th><th>이름</th>
+			<th>번호</th>
+			<th>이름</th>
 		</tr>
-		
-		<tr>
-			<td>번호</td><td>이름</td>
-		</tr> 
-			<%
-				for(int i=0;i<names.size();i++){
-			%>
+		<%
+			for(int i=0;i<names.size();i++){
+		%>
 		<tr>
 			<td><%= i+1 %></td>
 			<td><%= names.get(i) %></td>

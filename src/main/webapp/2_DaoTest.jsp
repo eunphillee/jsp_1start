@@ -7,30 +7,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>tbl_Product 테이블 dao </title>
 <link rel="stylesheet" href="css/table.css">
+<title>tbl_Product 테이블 dao</title>
 </head>
 <body>
 <%
-TblProductDao dao = TblProductDao.getInstance();
-List<Product> list = dao.selectByCategory("B1");  //카테고리값 변경 직접 문자열값 변경 
-// 결과 리스트를 브라우저에 출력하고 싶다. ---> table 태그 사용
-// dao 잘 싱행되는지 간단 테스트 
-// out.print(list);
+	TblProductDao dao = TblProductDao.getInstance();
+	List<Product> list = dao.selectByCategory("B1");   // 카테고리값 변경 직접 문자열값 변경
+	//결과 리스트를 브라우저에 출력하고 싶다.--> table 태그 사용
+	// dao 잘 실행되는지 간단 테스트
+	// out.print(list);
 %>
-
-
-
-
-
-<h2>카테고리별 상품 목록</h2>
-<table>
-		<tr id ="productH">
-		     <td style="width:100px;">번호</td>
-		     <th>카테고리</th>
-		     <th>상품명</th>
-		     <th>상품코드</th>
-		     <th>가격</th>
+	<h2>카테고리별 상품 목록</h2>
+	<table>
+		<tr id="productH">
+			<th style="width:100px;">번호</th>
+			<th>카테고리</th>
+			<th>상품명</th>
+			<th>상품코드</th>
+			<th>가격</th>
 		</tr>
 		
 			<%
