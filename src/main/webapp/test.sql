@@ -13,3 +13,15 @@ create table tbl_user_account(
 
   SELECT * FROM tbl_user_account
   WHERE userid = 'ph2lsped' and password ='1025'
+  
+  
+ create table tbl_rent_info(
+ 	rentid number(10) primary key,
+ 	userid varchar2(50) not null,
+ 	roomid varchar2(10) not null,
+ 	checkin date not null,
+ 	checkout  date not null,
+ 	night number(2) not null
+ 
+ )
+ 

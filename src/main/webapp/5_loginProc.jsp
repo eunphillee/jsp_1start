@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+0
 <title>5_loginProc.jsp</title>
 </head>
 <body>
@@ -21,8 +22,12 @@
      		out.print("<h2>로그인 성공 했습니다.</h2>");
      		
      	}else{
-     		out.print("<h2>로그인 실패 했습니다.</h2>");
-     		out.print("로그인 정보를 확인해 주세요");
+/*      		out.print("<h2>로그인 실패 했습니다.</h2>");
+     		out.print("로그인 정보를 확인해 주세요"); */
+     		response.sendRedirect("5_login.jsp?fail=y");
+     		// 서버측에서 새로운 url로 페이지 요청. 로그인 실패를 알리기 위한 파라미터 추가.
+     		
+     		
      	}
      %>
 </body>
