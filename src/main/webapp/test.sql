@@ -10,3 +10,6 @@ create table tbl_user_account(
 	gender varchar2(20),
 	email varchar2(50) unique
     );
+
+  SELECT * FROM tbl_user_account
+  WHERE userid = 'ph2lsped' and password ='1025'

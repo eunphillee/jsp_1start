@@ -8,16 +8,15 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor   //기본생성자
-@AllArgsConstructor  //커스텀 생성자(모든값 초기화) 
+@NoArgsConstructor  //기본생성자
+@AllArgsConstructor //커스텀 생성자(모든값 초기화)
 @ToString
-public class UserAccountVo {
-	
+public class UserAccountVO {
 	private String userid;
 	private String username;
 	private String password;
 	private String birth;
 	private String gender;
 	private String email;
-	
+
 }

@@ -1,4 +1,4 @@
-<%@page import="vo.UserAccountVo"%>
+<%@page import="vo.UserAccountVO"%>
 <%@page import="dao.UserAccountDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -53,8 +53,6 @@
 		out.print("<li>" + email + "</li>");
 		out.print("</ul>");
 	
-	
-	
-%>
+	%>
 </body>
 </html>
